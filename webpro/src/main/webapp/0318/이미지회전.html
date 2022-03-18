@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+   
+glochoice = null;
+function proc1(but){ //시작버튼
+	
+	//스타일로 설정된 테두리를 지운다 (처음부터 지우면 오류나니까 초기값  지정해주고 border = none;)
+	if(glochoice != null){
+		glochoice.style.border = "none";
+	}
+	
+	//자식을 지우는게 아니라 테두리만 지우는거야
+	
+	//시작버튼 감추기 - 더이상 클릭하지 못하도록 
+	but.style.display = "none";
+	globut = but;
+	//result1을 검색 --부모가 된다
+	vres = document.getElementById("result1");
+	/* for(i =0; i<7; i++){
+		vres.childNodes[i].style.border = "none";
+	} */
+	
+	//vres의 첫번째 자식 선택
+	// a = 1초마다 한번식{setinterval
+		a = setInterval(function(){
+			console.log(a);		
+			child = vres.firstChild;
+			vres.appendChild(child); 
+		},500);
+	//마지막 자식으로 추가 - appendChild()
+	}
+
+ function stop(){
+	 //시작버튼 보이기
+	 array = document.getElementsByTagName('img');
+	 
+	 clearInterval(a);
+	 globut.style.display = "inline";
+	 //랜덤발생 - 0부터 이미지갯수만큼
+	 rand = parseInt(Math.random()*7);
+	 glochoice = array[rand];
+	 
+	 vchoice = vres.childNodes[rand];
+	 vchoice.style.border = "1px double red";
+	 //랜덤발생된 번째 자식 이미지에 스타일로 테두리 border를 설정한다.
+	 //회전을 멈춘다.
+	 //
+	 
+ }
+</script>
+<style>
+img{
+float : left;
+width:5%;
+height : auto;
+border-radius: 300px;
+margin-left: 30px;
+}
+#result1{
+  width : calc(100%-1%);
+  height :100px;
+}
+
+</style>
+</head>
+<body>
+
+	<div class="box">
+		<pre> 시작버튼 누르면 --시작 누르면 시작버튼 사라지게 하기 ~(계속 누르면 멈출 수가 없어!)
+		1초마다 한번씩 첫번째 자식 선택해서 (firstchild) --> appendChild(마지막에 추가됨)
+		     원래 있던 자식은 없어져야함(자동으로 없어짐 !! (이미 있는 걸 선택해서 appendchild하면 
+		     자동으로 없어짐-appendchild의 속성))
+		     종료버튼 누르면 랜덤을 발생시켜서 랜덤 몇번째에 테두리를 씌워줌
+		---------------------------------------------------------      
+		     result1의 첫번째 자식(img)을 선택한다 -firstchild
+		     선택한 자식을 맨 마지막 자식으로 추가한다(appenchild())
+		     
+		     appendchild() 수행시 기존의 존재하는 요소를 대상으로 작업시 
+		     이동의 효과가 있다.(잘라내기 - 붙여넣기)
+		     
+		      
+       </pre>
+		<input type="button" value="시작" onclick="proc1(this)">
+		<input type="button" value="종료" onclick="stop()">
+		<div id="result1">
+			<img src="../images/Sony1.jpg" alt="Sony1.jpg"> 
+			<img src="../images/옷1.jpg" alt="옷1.jpg"> 
+			<img src="../images/컴퓨터1.jpg" alt="컴퓨터1.jpg"> 
+			<img src="../images/아메리카노.jpg" alt="아메리카노.jpg"> 
+			<img src="../images/식품1.jpg" alt="식품1.jpg"> 
+			<img src="../images/가구1.jpg" alt="가구1.jpg">
+			 <img src="../images/셔틀콕.jpg" alt="셔틀콕.jpg">
+
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+	function proc() {
+		var in1 = parseInt(prompt("정수1 입력"));
+		var in2 = parseInt(prompt("정수2 입력."));
+		//	  var hap = in1 +in2;
+
+		// 	  str = "입력 1 :" + in1 + "\n";
+		// 	  str += "입력 2 :" + in2 + "\n";
+		// 	  str += "덧셈 결과: " + hap;
+
+		//	  alert(str);
+		//	  console.log(str);
+
+		str = "입력 1 :" + in1 + "<br>";
+		
+		str += "입력 2 :" + in2 + "<br>";
+		str += "덧셈 결과: " + hap;
+		// document.write(str);
+
+		//div를 검색
+		var vd = document.querySelector("div");
+		vd.innerHTML = str;
+	}
+	function calc(abc) {
+		//두수를 입력
+		su1 = parseInt(prompt("정수1 입력>>"));
+		su2 = parseInt(prompt("정수2 입력>>"));
+
+		/*	"67"+"56"
+		 "67"*"56" -- 곱하기 빼기 나누기는 프롬프트 없어도돼  */
+
+		//abc의 값(+,-,*,/)을 비교 - if문 또는 switch 문
+		if (abc == "+") {//더하기
+			result = su1 + su2;
+		} else if (abc == "-") { //빼기
+			result = su1 - su2;
+		} else if (abc = "*") { //곱하기
+			result = su1 * su2;
+		} else {  //나누기
+			result = su1 / su2;
+		}
+     //  	str = "입력 1: "+su1 +"<br>";
+     		str = `입력 1 :${su1}<br>`;
+     
+     //  	str += "입력 2: "+su2 +"<br>";
+     		str += `입력 2 :${su2}<br>`
+     
+     //  	str += su1 + abc + su2 + "=" + result + "<br>";
+       	    str += `${su1}${abc}${su2}=${result}<br>`
+       	//document.getElmentById('res').innerHTML = str;
+        document.querySelector("#res").innerHTML = str; //두 개 다 쓸 수 있어
+        
+		
+		//id = res인 곳에 출력
+	}
+</script>
+</head>
+<body>
+	<pre>
+버튼을 클릭하면 두개의 수를 입력한다.(prompt이용)
+prompt함수의 리턴결과 값을 String이다.
+
+두 수를 더해서 출력한다 -div요소에
+더하기를 위해서 정수로 변환이 필요하다 -parseInt()
+
+요소검색 - es6  --단수로 검색한다(여러개가 있어도 첫번째 요소만 검색)
+document.querySelector("#aa")  --아이디
+document.querySelector(".bb")  --클래스 여러개중에 맨 처음것만 검색(단수)
+document.querySelector("div")  --div 여러개 중에 맨 처음것만 검색(단수)
+</pre>
+	<input type="button" value="확인" onclick="proc()">
+	<br>
+	<div></div>
+	<hr>
+	<input type="button" value="+" onclick="calc('+')">
+	<input type="button" value="-" onclick="calc('-')">
+	<input type="button" value="*" onclick="calc('*')">
+	<input type="button" value="/" onclick="calc('/')">
+	<div id="res"></div>
+
+</body>
+</html>

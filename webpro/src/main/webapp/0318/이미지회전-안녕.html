@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+	img{
+		width : 100px;
+		height : 100px;
+		border-radius: 50%;
+	}
+</style>
+
+<script>
+
+	//random = null;
+	
+	function proc1(but){
+		
+		// 스타일로 설정된 border(테두리) 지우기 -> 초기값 변수하나 주고 null이 아닐때 지워라~~
+		
+		
+		// 시작버튼 감추기 - 더이상 클릭하지 못하도록
+		but.style.display = "none";
+		globut = but;
+		
+		// result1을 검색
+		vres = document.getElementById("result1");
+//		vres1 = document.getElementById('result1');
+//		array = parent.getElementsByClassName('dimg');
+		
+	/* 	if(random != null){
+			random.style.border="none";
+		}
+	 */	
+		// a = 1초마다 한번씩 { -> setInterval
+		a = setInterval(function(){
+			console.log(a);
+			//parent.appendChild(parent.firstChild);
+
+// 			// vres1의 첫번째자식을 선택
+ 			child = vres.firstChild;
+// 			// 마지막 자식으로 추가한다. (appendChild())
+ 				vres.appendChild(child);
+
+		},500);
+	}
+	
+	function stop(){
+		
+		clearInterval(a);
+		
+		// 시작버튼 보여주기
+		globut.style.display = "inline";
+	
+	
+		// 랜덤발생 - 0부터 이미지갯수만큼
+		rand = parseInt(Math.random() *7);
+	    vchoice	=vres.childNodes[rand];
+		//random = array[rand];
+		
+		// 랜덤발생된번째 자식이미지에 style로 border(테두리)를 설정한다.
+		vchoice.style.border="1px double red";
+		
+		// 회전을 멈춤
+		
+	}
+</script>
+
+</head>
+<body>
+
+	<div class="box">
+		<h3>이미지회전</h3>
+		<pre>
+		result1의 첫번째 자식(img)을 선택한다.(firstChild -> 속성)
+		선택한 자식을 맨 마지막 자식으로 추가한다.(appendChild() -> 메서드)
+		
+		appendChild()수행시 기존에 존재하는 요소를 대상으로 작업시 이동의 효과가 있다.(잘라내기 - 붙여넣기의 효과)
+	    </pre>
+
+	    <div id="result1"></div>	<!-- 부모 -->
+			<!-- 자식  -->
+	    	<!-- 1초마다 한번씩 첫번째 자식선택(firstChild) 후 밑으로 내려버림(appendChild() -> 부모의 마지막으로 추가됨) -->
+	    	<img  src="../images/국화.jpg" alt="국화.jpg">
+	    	<img  src="../images/국화1.jpg" alt="국화1.jpg">
+	    	<img  src="../images/국화2.jpg" alt="국화2.jpg">
+	    	<img  src="../images/국화3.jpg" alt="국화3.jpg">
+	    	<img  src="../images/국화4.jpg" alt="국화4.jpg">
+	    	<img  src="../images/국화5.jpg" alt="국화5.jpg">
+	    	
+	   		<!-- 종료버튼을 누르면 다시 시작버튼이 나타남 -->
+	    	<input type="button" value="시작" onclick="proc1(this)">
+	    	<input type="button" value="종료" onclick="stop()">
+	</div>
+</body>
+</html>

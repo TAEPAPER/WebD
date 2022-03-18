@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style type="text/css">
+img{
+	width: 100%;
+	height: 70%;
+}
+.dimg{
+	width: 23%;
+	heigth : 90%;
+	float : left;
+}
+#result1{
+	height: 500px;
+}
+p{
+ text-align: center;
+}
+
+</style>
+<script type="text/javascript">
+
+window.onload = function(){
+	vdiv = document.getElementsByClassName('dimg');
+	
+	for(i=0; i<vdiv.length;i++){
+		vdiv[i].addEventListener('click', addText)
+	}
+}
+vp = null;
+function addText(){
+	if(vp!=null){		
+	vp.parentNode.removeChild(vp);
+	}
+	
+	rand = parseInt(Math.random()*6+5);
+	textnode = document.createTextNode("할인율 :"+rand+"%");
+	vp = document.createElement('p');
+	vp.appendChild(textnode);
+	this.appendChild(vp);
+	//click 이벤트 종료
+	this.removeEventListener('click',addText);
+	
+	
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+<pre>
+	파랑색 div를 클릭하면 
+	랜덤을 5~10 생성 *6 + 5
+	할인율 5% - textNode를 생성 
+	
+	p태그를 생성
+	p태그에 textNode를 자식으로 추가한다. 
+	
+	p태그를 파랑색 div에 자식으로 추가 한다. 
+	
+	클릭이벤트를 각각 div에 설정하지 않고
+	일괄 등록 방식으로한다.  
+	
+</pre>
+	<div id="result1">
+		<div class="dimg">
+			<img src="../images/가구1.jpg" alt="">
+		</div>	
+		<div class="dimg">
+			<img src="../images/가구2.jpg" alt="">
+		</div>	
+		<div class="dimg">
+			<img src="../images/가구3.jpg" alt="">
+		</div>	
+		<div class="dimg">
+			<img src="../images/소우주.jpg" alt="">
+		</div>	
+	</div>
+</div>
+</body>
+</html>

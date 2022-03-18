@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+</head>
+<style>
+ div.dimg{
+  width : 23%;
+  height : 500px;
+  float : left;
+  margin : 10px;
+  border-color: blue;
+  text-align: center;
+  
+ }
+img{
+   width : 100%;
+   height : 70%;  
+}
+
+#result1{
+  width : calc(100%-1%);
+  height : 600px;
+}
+</style>
+
+<script>
+window.onload = function(){
+vdimg =document.getElementsByClassName('dimg');
+//이벤트 일괄 등록	
+for(i =0; i<vdimg.length; i++){
+	vdimg[i].addEventListener('click', add);
+    	
+}	
+}
+function add(){
+	rand = parseInt(Math.random()*6)+5;
+	text = document.createTextNode("할인율 : "+rand + "%");
+	
+	ptag = document.createElement('p');
+	ptag.appendChild(text);
+	this.appendChild(ptag);
+
+}
+
+</script>
+<body>
+
+	<div class="box">
+		<pre> 
+		파랑색 div를 클릭하면 
+		랜덤을 5-10사이로 랜덤 발생
+		할인율 5%-문자 textNode를 생성
+		p태그를 생성
+		p태그의 textNode를 자식으로 추가한다.
+		
+		p태그를 파랑색 div에 자식으로 추가한다.
+		
+		클릭이벤트를 각각 div에 설정하지 않고 
+		일괄 등록 방식으로 한다 	
+		
+		//클릭하면 p태그 추가 -내용 : 할인률 5-10 랜덤 %
+       </pre>
+		<div id="result1">
+		    <div class ="dimg" >
+		    	<img src = "../images/Desert.jpg" alt ="Desert.jpg">
+		    </div>  
+		    <div class ="dimg">
+		    <img src = "../images/chopa.jpg" alt ="chopa.jpg">
+		    </div>
+		    <div class ="dimg" >
+		    <img src = "../images/gsj.png" alt ="gsj.png">
+		    </div>
+		    <div class ="dimg" >
+		    <img src = "../images/Jellyfish.jpg" alt ="Jellyfish.jpg">
+		    </div>
+		</div>
+	</div>
+</body>
+</html>

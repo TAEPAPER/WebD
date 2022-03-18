@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+  today = new Date();
+   window.onload = function(){
+      res2 = document.getElementById("result2");
+	  res2.innerHTML = today.toLocaleDateString();
+   }
+
+</script>
+<style>
+.box div#result2 {
+	width: 100px;
+	float: left;
+	height: 20px;
+}
+
+.box input[type=button] {
+	margin: 5px;
+}
+
+input[value=이전] {
+	float: left
+}
+</style>
+</head>
+<script>
+function proc1(){
+	var today = new Date();
+	//선택한 값을 가져온다 - value로 가져온다
+	datevalue =	document.getElementById("pdate").value;
+	//가져온 값으로 Date객체를 생성한다
+	selday = new Date(datevalue);
+	//selday의 getTime구하기 
+	times = today.getTime() - selday.getTime();
+	//times에 의한 날짜수 구하기 /1000/60/60/24
+	days = parseInt(times/1000/60/60/24);
+	//비교
+	str = "선택한 날 : "+ selday.toLocaleString() + "<br>";
+	if( days >= 7 ){
+		
+		str += days + "일이 지났습니다 <br>";
+		str +="교환 환불이 불가능합니다";
+	}else{
+	str += "교환 환불 가능합니다";
+	}
+	document.getElementById("result1").innerHTML = str; 
+}
+function proc2(input){
+	//input : - or +
+	//div의 현재 날짜를 가져온다
+	//가져온 날짜로 Date 객체를 생성한다.
+	//day = new Date(document.getElementById("result2").innerHTML);
+	//getTime()으로 millisec값을 구한다
+	//day2 =day.getTime();
+	//이전 이면 1일의 밀리세크 값을 빼준다! //24시간
+	//이전 이면 1일의 밀리세크 값을 더한다!
+	//switch(input){
+	//case '-' : day2 = day2 - (1000*60*60*24); 
+	//	break;
+	//case  '+' :day2 = day2 + (1000*60*60*24);
+	//	break;
+	//}
+	
+	//-,+ 한 값을 가지고 다시 Date객체를 생성한다.
+	//res = new Date(day2);
+	
+	//div id = "result2"에 출력한다.
+	
+	
+	/*선생님이 한것!*/
+	dtext = document.getElementById("result2").innerHTML;
+	currday = new Date(dtext);
+	ctimes = currday.getTime();
+	//1일의 밀리세크 
+	mill = 1*24*60*60*1000;
+	
+	if(input == '-'){
+		day = ctimes - mill;
+	}else{
+		day = ctimes + mill;
+	}
+	
+	newDay = new Date(day);
+	 document.getElementById("result2").innerHTML = newDay.toLocaleDateString();
+
+}
+</script>
+<body>
+
+	<div class="box">
+		<pre> 	
+		선택한 날로부터 오늘까지 7일이 지났으면 교환환불불가
+       </pre>
+		<input id="pdate" type="date"> <input type="button"
+			value="검사" onclick="proc1()">
+		<div id="result1"></div>
+	</div>
+
+	<div class="box">
+		<pre> 	
+		
+       </pre>
+		<input id ="prev" type="button" value="이전" onclick="proc2('-')">
+		<div id="result2"></div>
+		<input  id ="next" type="button" value="다음" onclick="proc2('+')">
+
+	</div>
+</body>
+</html>

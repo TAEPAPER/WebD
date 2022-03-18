@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#header {
+	border: 1px solid rgba(0, 0, 0, 0);
+	width: calc(100%-1%);
+	height: 60px;
+	font-size : 2.0em;
+	font-weight : bold;
+	padding-bottom: 20px;
+	background-color: #e8eee7;
+}
+#header img{
+     width : 40px;
+     height : 50px;
+      display : inline-block;
+      margin-top : 10px;
+      margin-left: 30px;
+      margin-right: 20px
+}
+#nav {
+	border: 2px dotted green;
+	width: calc(100%-1%);
+	height: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#nav ul li {
+	border: none;
+	display: inline-block;
+}
+
+#nav ul li a {
+	text-decoration: none;
+	padding: 10px;
+	padding-bottom: 30px;
+	margin: 20px;
+	letter-spacing: 15px;
+	border: none;
+	color : blue;
+	font-weight : bold;
+}
+#nav ul {
+	list-style-type: none;
+	border-left: none;
+	border-right: none;
+	text-align: center;
+}
+
+#left {
+  border-radius : 20px;
+	background-color: #5858FA; 
+	border : 1px solid rgba(0, 0, 0, 0);
+	width: 20%;
+	height: 500px;
+	float: left;
+	border-collapse : collapse;
+	border : none;
+
+}
+#left ul {
+	padding-left: 0px;
+	margin-top: 50px;
+	
+}
+#left ul li {
+	list-style-type : none;
+	
+	width : auto;
+	height : 30px;
+	padding: 5px 0;
+	padding-left : 10px;
+	border: 1px solid skyblue;
+	background-color : #2E64FE;
+	text-align : left;
+	
+}
+
+#left ul li a{
+text-decoration-line : none;
+color : white;
+
+
+}
+#section{
+    width: 58%;
+	height: 500px;
+	float: left;
+}
+#right {
+border-radius : 20px;
+	padding-left : 10px;
+    background-color :#e8eee7;
+	border: 1px solid rgba(0, 0, 0, 0);
+	width: 20%;
+	height: 500px;
+	float: right;
+}
+#footer {
+	text-align : center;
+	color : white;
+	border: 2px dotted rgba(0, 0, 0, 0);
+	width: 100%;
+	height: 40px;
+	background-color: black;
+	padding-top : 10px;
+}
+hr {
+	clear: both;
+}
+iframe{
+width : 100%;
+height : 100%;
+border-radius: 20px;
+
+}
+#article1{
+width : 100%;
+height : 100%;
+border-radius: 20px;
+}
+label{  
+   display : inline-block;
+   width : 130px;
+   height : 40px;
+  }
+
+</style>
+</head>
+<body>
+	<div id="header"><img src = "../images/shopping.jpg">Web Shopping</div>
+	<div id="nav">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="index.html">About Us</a></li>
+			<li><a href="index.html">News</a></li>
+			<li><a href="index.html">My Account</a></li>
+			<li><a href="index.html">Contacts</a></li>
+		</ul>
+	</div>
+	<div class="aside" id="left">
+		<ul>
+			<li><a href="computer.html" target= "ifr">컴퓨터</a></li>
+			<li><a href="clothing.html" target= "ifr">의류</a></li>
+			<li><a href="스포츠레저.html" target= "ifr">스포츠/레져</a></li>
+			<li><a href="가구인테리어.html" target= "ifr">가구/인테리어</a></li>
+			<li><a href="식품.html" target= "ifr">식품</a></li>
+
+		</ul>
+	</div>
+	<div id="section">
+		<article id="article1">
+			<iframe src="computer.html" name="ifr"> </iframe>
+		</article>
+	</div>
+	<div class="asdie" id="right">
+		<div id="shopcart">
+		<h4>Shopping Cart</h4><br>
+		<p>현재 쇼핑카트에 물품이 없습니다</p>
+		<p><a href = "shopcart.html">쇼핑카트 보기</a></p>
+		</div>
+			
+		<div id="login">
+			<h4>Log In</h4>
+			<form action="#">
+			<label>아이디</label>
+			<input type = "text"><br>
+			<label>패스워드</label>
+			<input type = "text">
+			
+			<br><br><input type = "button" value = "로그인">
+			<input type = "reset" value = "초기화">
+			<p><a href = "register.html">회원가입</a></p> 
+			<p><a href = "">비밀번호분실</a></p>
+			
+			
+			</form>
+		</div>
+
+	</div>
+	<hr>
+	<div id=footer>Copyright (c)2021 Hong</div>
+
+
+
+</body>
+</html>
